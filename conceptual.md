@@ -3,15 +3,15 @@
 Answer the following questions below:
 
 - What is PostgreSQL?
-- PostgreSQL is an object-relational database management system (ORDBMS)
+  - PostgreSQL is an object-relational database management system (ORDBMS)
 
 - What is the difference between SQL and PostgreSQL?
-- **PostgreSQL** is an advanced version of SQL which provides support to different functions of SQL like foreign keys, subqueries, triggers, and different user-defined types and functions. [Source](https://www.educba.com/sql-server-vs-postgresql/). It's considered the most advanced and powerful SQL ***compliant*** and open-source objective-RDBMS.
+  - **PostgreSQL** is an advanced version of SQL which provides support to different functions of SQL like foreign keys, subqueries, triggers, and different user-defined types and functions. [Source](https://www.educba.com/sql-server-vs-postgresql/). It's considered the most advanced and powerful SQL ***compliant*** and open-source objective-RDBMS.
 
 - In `psql`, how do you connect to a database?
-- In the ***shell** enter:
-> $ psql
-- PostgreSQL includes psql, a terminal-based program for issuing database commands.
+  - In the ***shell** enter:
+  > $ psql
+  - PostgreSQL includes psql, a terminal-based program for issuing database commands.
 
 - What is the difference between `HAVING` and `WHERE`?
 **Having** determines which grouped results to keep.
