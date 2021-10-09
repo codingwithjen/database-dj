@@ -14,8 +14,7 @@ Answer the following questions below:
   - PostgreSQL includes psql, a terminal-based program for issuing database commands.
 
 - What is the difference between `HAVING` and `WHERE`?
-**Having** determines which grouped results to keep.
-**Where** decides which rows to use.
+  - The difference between the two is that **WHERE** is used to specify a condition for filtering records *before* any *GROUPINGS* are made, while **HAVING** is used to specify a condition for filtering values *from* a *GROUP*.
 
 - What is the difference between an `INNER` and `OUTER` join?
 **Inner** shows only the rows that match the condition in both tables.
