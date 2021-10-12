@@ -37,8 +37,9 @@ ORDER BY release_year;
 
 4.  All information on the 5 longest movies.
 ```
-SELECT title, runtime
-FROM movies;
+SELECT * FROM movies
+ORDER BY runtime DESC
+LIMIT 5;
 ```
 
 5.  A query that returns the columns of `rating` and `total`, tabulating the
@@ -52,10 +53,10 @@ GROUP BY rating;
 6.  A table with columns of `release_year` and `average_runtime`,
     tabulating the average runtime by year for every movie in the database. The data should be in reverse chronological order (i.e. the most recent year should be first).
 ```
-SELECT release_year, SUM(runtime)
+SELECT release_year, AVG(runtime) AS average_runtime
 FROM movies
 GROUP BY release_year
-ORDER BY release_year;
+ORDER BY release_year DESC;
 ```
 
 7.  The movie title and studio name for every movie in the
@@ -79,29 +80,24 @@ ON r.star_id = s.id;
 ```
 9.  The first and last names of every star who has been in a G-rated movie. The first and last name should appear only once for each star, even if they are in several G-rated movies. *IMPORTANT NOTE*: it's possible that there can be two *different* actors with the same name, so make sure your solution accounts for that.
 ```
-SELECT s.id, s.first_name, s.last_name
-FROM movies m
-JOIN roles r
-ON m.id = r.movie_id
-JOIN stars s
-ON r.star_id = s.id
-GROUP by s.id, s.first_name, s.last_name
-HAVING count(*) =>2;
+SELECT first_name, last_name, rating
+FROM movies
+JOIN roles ON movies.id = roles.movie_id
+JOIN stars ON roles.star_id = stars.id
+GROUP BY first_name, last_name, rating
+HAVING rating = 'G';
 ```
 
 10. The first and last names of every star along with the number
     of movies they have been in, in descending order by the number of movies. (Similar to #9, make sure
     that two different actors with the same name are considered separately).
 ```
-SELECT s.id, s.first_name, s.last_name
-FROM movies m
-JOIN roles r
-ON m.id = r.movie_id
-JOIN stars s
-ON r.star_id = s.id
-GROUP by s.id, s.first_name, s.last_name
-HAVING count(*) =>2
-ORDER BY s.id;
+SELECT first_name, last_name, COUNT(title) AS movie_count
+FROM movies
+JOIN roles ON movies.id = roles.movie_id
+JOIN stars ON roles.star_id = stars.id
+GROUP BY first_name, last_name
+ORDER BY COUNT(title) DESC;
 ```
 
 ### The rest of these are bonuses
