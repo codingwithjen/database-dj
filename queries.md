@@ -84,7 +84,7 @@ SELECT first_name, last_name, rating
 FROM movies
 JOIN roles ON movies.id = roles.movie_id
 JOIN stars ON roles.star_id = stars.id
-GROUP BY first_name, last_name, rating
+GROUP BY stars.id, movies.title
 HAVING rating = 'G';
 ```
 
@@ -96,7 +96,7 @@ SELECT first_name, last_name, COUNT(title) AS movie_count
 FROM movies
 JOIN roles ON movies.id = roles.movie_id
 JOIN stars ON roles.star_id = stars.id
-GROUP BY first_name, last_name
+GROUP BY stars.id
 ORDER BY COUNT(title) DESC;
 ```
 
